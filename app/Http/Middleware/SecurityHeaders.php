@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class SecurityHeaders
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        $response = $next($request);
+
+        // Security headers
+        $response->headers->set('X-Content-Type-Options', 'nosniff');
+        $response->headers->set('X-Frame-Options', 'DENY');
+        $response->headers->set('X-XSS-Protection', '1; mode=block');
+        $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
+        
+        // Only add HSTS in production with HTTPS
+        if (config('app.env') === 'production' && $request->isSecure()) {
+            $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+        }
+        
+        // Content Security Policy (adjust as needed)
+        // Allow Vite dev server in development (only when hot file exists)
+        $viteDevServer = '';
+        if (config('app.debug') && file_exists(public_path('hot'))) {
+            // Use localhost which works for both IPv4 and IPv6
+            $viteDevServer = 'http://localhost:5173 ws://localhost:5173';
+        }
+        
+        $csp = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://fonts.googleapis.com {$viteDevServer}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net {$viteDevServer}; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' {$viteDevServer};";
+        $response->headers->set('Content-Security-Policy', $csp);
+
+        return $response;
+    }
+}
+

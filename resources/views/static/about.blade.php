@@ -7,7 +7,7 @@
     <section class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center text-white">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6">À Propos de Boiema</h1>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">À Propos de I.M System</h1>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
                     Votre partenaire pour l'entrepreneuriat et l'investissement au Maroc
                 </p>
@@ -22,7 +22,7 @@
                 <div>
                     <h2 class="text-4xl font-bold text-gray-900 mb-6">Notre Mission</h2>
                     <p class="text-lg text-gray-600 mb-4">
-                        Boiema est une plateforme gouvernementale dédiée à faciliter l'accès aux services d'entrepreneuriat, 
+                        I.M System est une plateforme gouvernementale dédiée à faciliter l'accès aux services d'entrepreneuriat, 
                         d'investissement et d'emploi au Maroc.
                     </p>
                     <p class="text-lg text-gray-600 mb-4">

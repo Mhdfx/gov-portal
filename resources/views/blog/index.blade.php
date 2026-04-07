@@ -7,7 +7,7 @@
     <section class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center text-white">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6">Blog Boiema</h1>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Blog I.M System</h1>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
                     Actualités, conseils et ressources pour entrepreneurs et investisseurs
                 </p>

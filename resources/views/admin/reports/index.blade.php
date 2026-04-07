@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('meta_title', 'Reports & Analytics | Admin Dashboard')
-@section('meta_description', 'Comprehensive reports and analytics for the Boiema platform.')
+@section('meta_description', 'Comprehensive reports and analytics for the I.M System platform.')
 
 @section('content')
 <div class="container mx-auto px-4 py-6">

@@ -68,7 +68,7 @@
     </div>
 
     <div class="footer">
-        <p>This is an automated notification from the Boiema Platform.</p>
+        <p>This is an automated notification from the I.M System.</p>
         <p>Please do not reply to this email.</p>
     </div>
 </body>

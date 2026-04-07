@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('meta_title', $jobListing->title . ' | Boiema Platform')
+@section('meta_title', $jobListing->title . ' | I.M System')
 @section('meta_description', Str::limit(strip_tags($jobListing->description), 155))
 
 @section('content')

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mise à Jour du Statut - Plateforme Boiema</title>
+    <title>Mise à Jour du Statut - Plateforme I.M System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,7 +91,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Plateforme Boiema</h1>
+        <h1>Plateforme I.M System</h1>
         <p>Services Gouvernementaux</p>
     </div>
     
@@ -179,12 +179,12 @@
         <p>Si vous avez des questions, n'hésitez pas à nous contacter.</p>
         
         <p>Cordialement,<br>
-        L'équipe Boiema</p>
+        L'équipe I.M System</p>
     </div>
     
     <div class="footer">
         <p>Cet email a été envoyé automatiquement, merci de ne pas y répondre.</p>
-        <p>© {{ date('Y') }} Plateforme Boiema - Tous droits réservés</p>
+        <p>© {{ date('Y') }} Plateforme I.M System - Tous droits réservés</p>
     </div>
 </body>
 </html>

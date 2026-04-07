@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('meta_title', 'File Management | Admin Dashboard')
-@section('meta_description', 'Manage all uploaded files and documents on the Boiema Platform.')
+@section('meta_description', 'Manage all uploaded files and documents on the I.M System.')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">

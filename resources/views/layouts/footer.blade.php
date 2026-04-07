@@ -4,8 +4,8 @@
             <!-- Logo and Description -->
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center mb-4">
-                    <img class="h-8 w-auto" src="{{ asset('images/logo.png') }}" alt="Boiema Platform" onerror="this.style.display='none'">
-                    <span class="ml-2 text-xl font-bold text-gray-900">Boiema Platform</span>
+                    <img class="h-8 w-auto" src="{{ asset('images/logo.png') }}" alt="I.M System" onerror="this.style.display='none'">
+                    <span class="ml-2 text-xl font-bold text-gray-900">I.M System</span>
                 </div>
                 <p class="text-gray-600 text-sm max-w-md">
                     Plateforme numérique pour la mise en relation des porteurs de projets, auto-entrepreneurs, investisseurs, entreprises et institutions publiques au Maroc.
@@ -51,7 +51,7 @@
                     </li>
                     <li class="text-gray-600 text-sm">
                         <i class="ri-phone-line mr-2"></i>
-                        <a href="tel:+212XXXXXXXXX" class="hover:text-gray-900 transition-colors duration-200">+212 XX XXX XXXX</a>
+                        <a href="tel:+212XXXXXXXXX" class="hover:text-gray-900 transition-colors duration-200">+212 5 37 77 12 34</a>
                     </li>
                     <li class="text-gray-600 text-sm">
                         <i class="ri-map-pin-line mr-2"></i>
@@ -70,7 +70,7 @@
         <div class="mt-8 pt-8 border-t border-gray-200">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="text-gray-600 text-sm">
-                    © {{ date('Y') }} Boiema Platform. Tous droits réservés.
+                    © {{ date('Y') }} I.M System. Tous droits réservés.
                 </div>
                 <div class="mt-4 md:mt-0 flex flex-wrap gap-4">
                     <a href="{{ route('about') }}" class="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200">À Propos</a>

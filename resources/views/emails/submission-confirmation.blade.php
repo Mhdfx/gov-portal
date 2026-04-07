@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation de Soumission - Plateforme Boiema</title>
+    <title>Confirmation de Soumission - Plateforme I.M System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,7 +76,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Plateforme Boiema</h1>
+        <h1>Plateforme I.M System</h1>
         <p>Services Gouvernementaux</p>
     </div>
     
@@ -108,7 +108,7 @@
         
         <p>Votre demande est maintenant en cours de traitement par nos équipes. Vous recevrez une notification par email dès que le statut de votre soumission sera mis à jour.</p>
         
-        <p>Vous pouvez suivre l'avancement de votre demande en vous connectant à votre espace personnel sur la plateforme Boiema.</p>
+        <p>Vous pouvez suivre l'avancement de votre demande en vous connectant à votre espace personnel sur la plateforme I.M System.</p>
         
         <div style="text-align: center;">
             <a href="{{ route('login') }}" class="btn">Accéder à mon espace</a>
@@ -117,12 +117,12 @@
         <p>Si vous avez des questions, n'hésitez pas à nous contacter.</p>
         
         <p>Cordialement,<br>
-        L'équipe Boiema</p>
+        L'équipe I.M System</p>
     </div>
     
     <div class="footer">
         <p>Cet email a été envoyé automatiquement, merci de ne pas y répondre.</p>
-        <p>© {{ date('Y') }} Plateforme Boiema - Tous droits réservés</p>
+        <p>© {{ date('Y') }} Plateforme I.M System - Tous droits réservés</p>
     </div>
 </body>
 </html>

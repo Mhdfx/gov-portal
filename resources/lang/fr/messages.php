@@ -2,7 +2,7 @@
 
 return [
     // General messages
-    'welcome' => 'Bienvenue sur Boiema Platform',
+    'welcome' => 'Bienvenue sur I.M System',
     'home' => 'Accueil',
     'about' => 'À propos',
     'contact' => 'Contact',

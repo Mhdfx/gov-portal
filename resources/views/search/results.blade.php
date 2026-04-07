@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('meta_title', 'Search Results | Boiema Platform')
-@section('meta_description', 'Search results for your query on Boiema Platform')
+@section('meta_title', 'Search Results | I.M System')
+@section('meta_description', 'Search results for your query on I.M System')
 
 @section('content')
     @include('layouts.navigation')

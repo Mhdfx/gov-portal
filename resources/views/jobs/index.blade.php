@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('meta_title', 'Offres d\'Emploi | Boiema Platform')
-@section('meta_description', 'Découvrez les dernières offres d\'emploi et opportunités de carrière sur Boiema Platform.')
+@section('meta_title', 'Offres d\'Emploi | I.M System')
+@section('meta_description', 'Découvrez les dernières offres d\'emploi et opportunités de carrière sur I.M System.')
 
 @section('content')
     @include('layouts.navigation')

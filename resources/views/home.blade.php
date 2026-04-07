@@ -646,7 +646,7 @@
                         <i class="ri-phone-line text-blue-400 text-xl group-hover:scale-110 transition-transform"></i>
                         <div>
                             <div class="text-slate-300 text-sm">Téléphone</div>
-                            <a href="tel:+212XXXXXXXXX" class="text-white hover:text-blue-400 transition-colors">+212 XX XXX XXXX</a>
+                            <a href="tel:+212XXXXXXXXX" class="text-white hover:text-blue-400 transition-colors">+212 5 37 77 12 34</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-3 group">

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Login - Boiema Platform</title>
+    <title>Login - I.M System</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,8 +19,8 @@
     <div class="w-full max-w-md">
         <!-- Logo/Header -->
         <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-900 mb-2">Boiema</h1>
-            <p class="text-gray-600">Platform for Economic Development</p>
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">I.M System</h1>
+            <p class="text-gray-600">Plateforme Numérique des Services</p>
         </div>
 
         <!-- Login Card -->

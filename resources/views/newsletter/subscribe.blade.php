@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('meta_title', 'Newsletter Subscription | Boiema Platform')
-@section('meta_description', 'Subscribe to our newsletter to stay updated with the latest news and updates from Boiema Platform.')
+@section('meta_title', 'Newsletter Subscription | I.M System')
+@section('meta_description', 'Subscribe to our newsletter to stay updated with the latest news and updates from I.M System.')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
     <div class="max-w-2xl mx-auto">
         <div class="text-center mb-8">
             <h1 class="text-3xl font-bold text-gray-800 mb-4">Newsletter Subscription</h1>
-            <p class="text-gray-600">Stay updated with the latest news, updates, and opportunities from the Boiema Platform</p>
+            <p class="text-gray-600">Stay updated with the latest news, updates, and opportunities from the I.M System</p>
         </div>
         
         <div class="bg-white shadow-md rounded-lg p-8">
@@ -59,7 +59,7 @@
                                class="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
                         <label for="privacy_policy" class="ml-2 text-sm text-gray-700">
                             I agree to the <a href="#" class="text-blue-600 hover:text-blue-900 underline">Privacy Policy</a> 
-                            and consent to receiving newsletter emails from Boiema Platform.
+                            and consent to receiving newsletter emails from I.M System.
                         </label>
                     </div>
                     @error('privacy_policy')

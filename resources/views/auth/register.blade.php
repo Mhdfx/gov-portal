@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('meta_title', 'Inscription | Boiema Platform')
-@section('meta_description', 'Créez votre compte Boiema pour accéder à tous les services de la plateforme.')
+@section('meta_title', 'Inscription | I.M System')
+@section('meta_description', 'Créez votre compte I.M System pour accéder à tous les services de la plateforme.')
 
 @section('content')
 <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">

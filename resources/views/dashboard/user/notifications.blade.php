@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('meta_title', 'Notifications | Boiema Platform')
-@section('meta_description', 'View your notifications and alerts from Boiema Platform.')
+@section('meta_title', 'Notifications | I.M System')
+@section('meta_description', 'View your notifications and alerts from I.M System.')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">

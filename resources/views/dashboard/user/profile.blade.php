@@ -181,8 +181,8 @@
 @endsection
 @extends('layouts.app')
 
-@section('meta_title', 'User Profile | Boiema Platform')
-@section('meta_description', 'Manage your personal profile information on Boiema Platform.')
+@section('meta_title', 'User Profile | I.M System')
+@section('meta_description', 'Manage your personal profile information on I.M System.')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">

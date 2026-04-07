@@ -122,7 +122,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Boiema Platform</h1>
+            <h1>I.M System</h1>
             <p>Your Gateway to Government Services</p>
         </div>
         
@@ -137,13 +137,13 @@
                 <p><strong>Stay Connected:</strong></p>
                 <p>Visit our platform to explore more opportunities and services available to you.</p>
                 <p style="text-align: center;">
-                    <a href="{{ route('home') }}" class="button">Visit Boiema Platform</a>
+                    <a href="{{ route('home') }}" class="button">Visit I.M System</a>
                 </p>
             </div>
         </div>
         
         <div class="footer">
-            <p><strong>Boiema Platform</strong></p>
+            <p><strong>I.M System</strong></p>
             <p>Your trusted partner for government services and opportunities</p>
             <p>This email was sent to {{ $subscription->email }}</p>
             
@@ -153,7 +153,7 @@
                         Unsubscribe from this newsletter
                     </a>
                 </p>
-                <p>&copy; {{ date('Y') }} Boiema Platform. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} I.M System. All rights reserved.</p>
             </div>
         </div>
     </div>

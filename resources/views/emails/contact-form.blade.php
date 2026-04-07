@@ -49,7 +49,7 @@
 <body>
     <div class="header">
         <h1>Nouveau message de contact</h1>
-        <p>Plateforme Boiema - Services Gouvernementaux</p>
+        <p>Plateforme I.M System - Services Gouvernementaux</p>
     </div>
     
     <div class="content">
@@ -77,7 +77,7 @@
     </div>
     
     <div class="footer">
-        <p>Ce message a été envoyé automatiquement depuis le site web Boiema.</p>
+        <p>Ce message a été envoyé automatiquement depuis le site web I.M System.</p>
         <p>Répondez directement à l'email de l'expéditeur pour le contacter.</p>
     </div>
 </body>

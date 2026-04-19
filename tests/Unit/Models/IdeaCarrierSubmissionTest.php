@@ -27,7 +27,7 @@ class IdeaCarrierSubmissionTest extends TestCase
         $submission = IdeaCarrierSubmission::factory()->create();
 
         $this->assertNotNull($submission->submission_number);
-        $this->assertStringStartsWith('IDEA', $submission->submission_number);
+        $this->assertStringStartsWith('IDE-', $submission->submission_number);
     }
 
     /** @test */

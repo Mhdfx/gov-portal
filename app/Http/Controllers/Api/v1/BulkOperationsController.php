@@ -87,7 +87,7 @@ class BulkOperationsController extends Controller
             
             DB::commit();
             
-            $this->loggingService->logInfo('Bulk status update performed', [
+            $this->loggingService->log('bulk_update_status', 'Bulk status update performed', [
                 'user_id' => $user->id,
                 'updated_count' => $updated,
                 'status' => $status,
@@ -150,7 +150,7 @@ class BulkOperationsController extends Controller
             
             DB::commit();
             
-            $this->loggingService->logInfo('Bulk delete performed', [
+            $this->loggingService->log('bulk_delete', 'Bulk delete performed', [
                 'user_id' => $user->id,
                 'deleted_count' => $deleted,
                 'type' => $type

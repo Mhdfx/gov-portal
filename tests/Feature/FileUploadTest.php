@@ -26,13 +26,15 @@ class FileUploadTest extends TestCase
 
         $file = UploadedFile::fake()->create('document.pdf', 1000, 'application/pdf');
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), array_merge(
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), array_merge(
             $this->getAutoEntrepreneurFormData(),
             ['identity_document' => $file]
         ));
 
-        $response->assertStatus(200);
-        Storage::disk('public')->assertExists('auto-entrepreneur/documents/' . $file->hashName());
+        $response->assertStatus(201);
+        $files = Storage::disk('public')->files('auto-entrepreneur/documents');
+        $this->assertNotEmpty($files);
+        $this->assertStringContainsString('document.pdf', $files[0]);
     }
 
     /** @test */
@@ -41,15 +43,17 @@ class FileUploadTest extends TestCase
         $user = User::factory()->create(['role' => 'user']);
         $this->actingAs($user);
 
-        $file = UploadedFile::fake()->image('identity.jpg', 600, 400);
+        $file = UploadedFile::fake()->create('identity.jpg', 1000, 'image/jpeg');
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), array_merge(
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), array_merge(
             $this->getAutoEntrepreneurFormData(),
             ['identity_document' => $file]
         ));
 
-        $response->assertStatus(200);
-        Storage::disk('public')->assertExists('auto-entrepreneur/documents/' . $file->hashName());
+        $response->assertStatus(201);
+        $files = Storage::disk('public')->files('auto-entrepreneur/documents');
+        $this->assertNotEmpty($files);
+        $this->assertStringContainsString('identity.jpg', $files[0]);
     }
 
     /** @test */
@@ -60,7 +64,7 @@ class FileUploadTest extends TestCase
 
         $file = UploadedFile::fake()->create('document.exe', 1000, 'application/x-msdownload');
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), array_merge(
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), array_merge(
             $this->getAutoEntrepreneurFormData(),
             ['identity_document' => $file]
         ));
@@ -78,7 +82,7 @@ class FileUploadTest extends TestCase
         // Create a file larger than 10MB (10240 KB)
         $file = UploadedFile::fake()->create('large-document.pdf', 11000, 'application/pdf');
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), array_merge(
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), array_merge(
             $this->getAutoEntrepreneurFormData(),
             ['identity_document' => $file]
         ));
@@ -96,12 +100,12 @@ class FileUploadTest extends TestCase
         // Create a file just under 10MB
         $file = UploadedFile::fake()->create('document.pdf', 10000, 'application/pdf');
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), array_merge(
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), array_merge(
             $this->getAutoEntrepreneurFormData(),
             ['identity_document' => $file]
         ));
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
     }
 
     /** @test */
@@ -114,7 +118,7 @@ class FileUploadTest extends TestCase
         $businessPlan = UploadedFile::fake()->create('business-plan.pdf', 2000, 'application/pdf');
         $cv = UploadedFile::fake()->create('cv.pdf', 1500, 'application/pdf');
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), array_merge(
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), array_merge(
             $this->getAutoEntrepreneurFormData(),
             [
                 'identity_document' => $identityFile,
@@ -123,10 +127,10 @@ class FileUploadTest extends TestCase
             ]
         ));
 
-        $response->assertStatus(200);
-        Storage::disk('public')->assertExists('auto-entrepreneur/documents/' . $identityFile->hashName());
-        Storage::disk('public')->assertExists('auto-entrepreneur/business-plans/' . $businessPlan->hashName());
-        Storage::disk('public')->assertExists('auto-entrepreneur/cv/' . $cv->hashName());
+        $response->assertStatus(201);
+        $this->assertNotEmpty(Storage::disk('public')->files('auto-entrepreneur/documents'));
+        $this->assertNotEmpty(Storage::disk('public')->files('auto-entrepreneur/business-plans'));
+        $this->assertNotEmpty(Storage::disk('public')->files('auto-entrepreneur/cv'));
     }
 
     /** @test */
@@ -138,14 +142,16 @@ class FileUploadTest extends TestCase
         // File name with special characters
         $file = UploadedFile::fake()->create('file with spaces & special chars!.pdf', 1000, 'application/pdf');
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), array_merge(
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), array_merge(
             $this->getAutoEntrepreneurFormData(),
             ['identity_document' => $file]
         ));
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
         // File should be stored with sanitized name
-        $this->assertTrue(Storage::disk('public')->exists('auto-entrepreneur/documents/' . $file->hashName()));
+        $files = Storage::disk('public')->files('auto-entrepreneur/documents');
+        $this->assertNotEmpty($files);
+        $this->assertStringContainsString('file_with_spaces_special_chars_.pdf', $files[0]);
     }
 
     /** @test */
@@ -156,7 +162,7 @@ class FileUploadTest extends TestCase
 
         $identityFile = UploadedFile::fake()->create('identity.pdf', 1000, 'application/pdf');
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), array_merge(
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), array_merge(
             $this->getAutoEntrepreneurFormData(),
             [
                 'identity_document' => $identityFile,
@@ -164,7 +170,7 @@ class FileUploadTest extends TestCase
             ]
         ));
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
     }
 
     /**

@@ -109,7 +109,19 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/export/excel', [ExportController::class, 'exportExcel']);
         Route::get('/export/pdf', [ExportController::class, 'exportPdf']);
         Route::get('/export/csv', [ExportController::class, 'exportCsv']);
+
+        // Bulk Operations API
+        Route::post('/bulk/update-status', [\App\Http\Controllers\Api\v1\BulkOperationsController::class, 'bulkUpdateStatus']);
+        Route::post('/bulk/delete', [\App\Http\Controllers\Api\v1\BulkOperationsController::class, 'bulkDelete']);
     });
+    
+    // Performance Monitoring Routes
+    Route::get('/performance/metrics', [\App\Http\Controllers\PerformanceMonitoringController::class, 'metrics']);
+    Route::get('/performance/slow-queries', [\App\Http\Controllers\PerformanceMonitoringController::class, 'slowQueries']);
+    
+    // Realtime Stats Route
+    Route::get('/realtime/stats', [\App\Http\Controllers\Api\v1\RealtimeController::class, 'getStats']);
+    Route::post('/realtime/authenticate', [\App\Http\Controllers\Api\v1\RealtimeController::class, 'authenticate']);
 });
 
 // Rate limiting for API routes

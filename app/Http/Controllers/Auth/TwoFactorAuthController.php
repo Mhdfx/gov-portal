@@ -123,7 +123,7 @@ class TwoFactorAuthController extends Controller
     public function verify(Request $request)
     {
         $request->validate([
-            'code' => 'required|string|size:6'
+            'code' => 'required|string|min:6|max:16'
         ]);
 
         $userId = $request->session()->get('2fa_user_id');

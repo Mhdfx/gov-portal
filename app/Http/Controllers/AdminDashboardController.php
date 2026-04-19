@@ -885,7 +885,7 @@ class AdminDashboardController extends Controller
                 $q->where('title', 'like', '%' . $search . '%')
                     ->orWhere('message', 'like', '%' . $search . '%')
                     ->orWhere('type', 'like', '%' . $search . '%')
-                    ->orHas('user', function ($userQuery) use ($search) {
+                    ->orWhereHas('user', function ($userQuery) use ($search) {
                         $userQuery->where('username', 'like', '%' . $search . '%')
                             ->orWhere('email', 'like', '%' . $search . '%');
                     });

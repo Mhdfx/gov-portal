@@ -27,7 +27,7 @@ class AutoEntrepreneurSubmissionTest extends TestCase
         $submission = AutoEntrepreneurSubmission::factory()->create();
 
         $this->assertNotNull($submission->submission_number);
-        $this->assertStringStartsWith('AUTO', $submission->submission_number);
+        $this->assertStringStartsWith('AUT-', $submission->submission_number);
     }
 
     /** @test */

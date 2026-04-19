@@ -27,6 +27,9 @@ class User extends Authenticatable
         'province',
         'verification_status',
         'last_login_at',
+        'two_factor_enabled',
+        'two_factor_secret',
+        'recovery_codes',
     ];
 
     /**
@@ -50,6 +53,7 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'last_login_at' => 'datetime',
             'password' => 'hashed',
+            'two_factor_enabled' => 'boolean',
         ];
     }
 

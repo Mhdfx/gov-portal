@@ -113,7 +113,7 @@ Route::post('/2fa/verify', [\App\Http\Controllers\Auth\TwoFactorAuthController::
 
 // Registration routes (public)
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('register')->middleware('throttle:3,1'); // 3 attempts per minute
+Route::post('/register', [AuthController::class, 'register'])->name('register.post')->middleware('throttle:3,1'); // 3 attempts per minute
 
 // Candidate registration routes (public)
 Route::get('/candidates/register', [CandidateController::class, 'showRegistrationForm'])->name('candidates.register');

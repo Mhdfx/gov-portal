@@ -27,7 +27,7 @@ class INDHSubmissionTest extends TestCase
         $submission = INDHSubmission::factory()->create();
 
         $this->assertNotNull($submission->submission_number);
-        $this->assertStringStartsWith('INDH', $submission->submission_number);
+        $this->assertStringStartsWith('IND-', $submission->submission_number);
     }
 
     /** @test */

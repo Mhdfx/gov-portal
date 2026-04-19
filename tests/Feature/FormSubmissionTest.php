@@ -50,12 +50,12 @@ class FormSubmissionTest extends TestCase
             'accept_data_processing' => true,
         ];
 
-        $response = $this->post(route('forms.investment.submit'), $data);
+        $response = $this->postJson(route('forms.investment.submit'), $data);
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
         $this->assertDatabaseHas('investment_submissions', [
             'user_id' => $user->id,
-            'email' => $data['email'],
+            'contact_email' => $data['email'],
         ]);
     }
 
@@ -65,7 +65,7 @@ class FormSubmissionTest extends TestCase
         $user = User::factory()->create(['role' => 'user']);
         $this->actingAs($user);
 
-        $response = $this->post(route('forms.investment.submit'), []);
+        $response = $this->postJson(route('forms.investment.submit'), []);
 
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['first_name', 'last_name', 'email', 'phone']);
@@ -105,12 +105,12 @@ class FormSubmissionTest extends TestCase
             'accept_data_processing' => true,
         ];
 
-        $response = $this->post(route('forms.project-carrier.submit'), $data);
+        $response = $this->postJson(route('forms.project-carrier.submit'), $data);
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
         $this->assertDatabaseHas('project_carrier_submissions', [
             'user_id' => $user->id,
-            'email' => $data['email'],
+            'project_name' => $data['project_name'],
         ]);
     }
 
@@ -156,12 +156,12 @@ class FormSubmissionTest extends TestCase
             'accept_data_processing' => true,
         ];
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), $data);
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), $data);
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
         $this->assertDatabaseHas('auto_entrepreneur_submissions', [
             'user_id' => $user->id,
-            'email' => $data['email'],
+            'business_name' => $data['business_name'],
         ]);
     }
 
@@ -202,7 +202,7 @@ class FormSubmissionTest extends TestCase
             'accept_data_processing' => true,
         ];
 
-        $response = $this->post(route('forms.auto-entrepreneur.submit'), $data);
+        $response = $this->postJson(route('forms.auto-entrepreneur.submit'), $data);
 
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['identity_document']);

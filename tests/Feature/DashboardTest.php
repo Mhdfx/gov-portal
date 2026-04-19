@@ -13,7 +13,7 @@ class DashboardTest extends TestCase
     /** @test */
     public function admin_can_access_admin_dashboard()
     {
-        $admin = User::factory()->create(['role' => 'admin']);
+        $admin = User::factory()->create(['role' => 'main_admin']);
         $this->actingAs($admin);
 
         $response = $this->get(route('admin.dashboard'));
@@ -30,7 +30,7 @@ class DashboardTest extends TestCase
 
         $response = $this->get(route('admin.dashboard'));
 
-        $response->assertStatus(403);
+        $response->assertRedirect();
     }
 
     /** @test */

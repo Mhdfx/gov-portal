@@ -22,6 +22,7 @@ class InvestmentSubmissionFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
+            'submission_number' => 'INV-' . strtoupper($this->faker->bothify('??####')),
             'project_name' => $this->faker->company . ' Project',
             'project_description' => $this->faker->paragraph(3),
             'investment_amount' => $this->faker->numberBetween(10000, 1000000),

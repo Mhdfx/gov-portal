@@ -13,16 +13,16 @@ class UserTest extends TestCase
     /** @test */
     public function user_has_role_helper_method()
     {
-        $user = User::factory()->create(['role' => 'admin']);
+        $user = User::factory()->create(['role' => 'main_admin']);
 
-        $this->assertTrue($user->hasRole('admin'));
+        $this->assertTrue($user->hasRole('main_admin'));
         $this->assertFalse($user->hasRole('user'));
     }
 
     /** @test */
     public function user_has_is_admin_helper_method()
     {
-        $admin = User::factory()->create(['role' => 'admin']);
+        $admin = User::factory()->create(['role' => 'main_admin']);
         $sectoralAdmin = User::factory()->create(['role' => 'sectoral_admin']);
         $user = User::factory()->create(['role' => 'user']);
 

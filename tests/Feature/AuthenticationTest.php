@@ -72,7 +72,7 @@ class AuthenticationTest extends TestCase
 
         $response = $this->post(route('logout'));
 
-        $response->assertRedirect('/');
+        $response->assertRedirect(route('login'));
         $this->assertGuest();
     }
 

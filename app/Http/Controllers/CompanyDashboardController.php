@@ -12,7 +12,7 @@ use App\Models\Order;
 use App\Models\JobListing;
 use App\Models\JobApplication;
 use App\Models\CompanyDocument;
-use App\Models\Notification;
+use App\Models\CompanyUpdate;
 use SEO;
 
 class CompanyDashboardController extends Controller
@@ -1026,6 +1026,109 @@ class CompanyDashboardController extends Controller
         ]);
 
         return redirect()->route('company.settings')->with('success', 'Settings updated successfully.');
+    }
+
+    /**
+     * Show the public profile management page.
+     */
+    public function publicProfile()
+    {
+        $company = Auth::user()->company;
+        
+        if (!$company || $company->approval_status !== 'approved') {
+            return redirect()->route('company.dashboard')->with('error', 'Votre entreprise doit être approuvée par l\'administration pour accéder à cette fonctionnalité.');
+        }
+        
+        SEO::setTitle('Profil Public - ' . $company->company_name);
+        
+        $updates = $company->updates()->latest()->paginate(10);
+        
+        return view('dashboard.company.public-profile', compact('company', 'updates'));
+    }
+
+    /**
+     * Update the public profile information.
+     */
+    public function updatePublicProfile(Request $request)
+    {
+        $company = Auth::user()->company;
+        
+        if ($company->approval_status !== 'approved') {
+            abort(403, 'Action non autorisée.');
+        }
+        
+        $request->validate([
+            'description' => 'required|string|max:5000',
+            'website' => 'nullable|url|max:255',
+            'social_links' => 'nullable|array',
+            'social_links.facebook' => 'nullable|url|max:255',
+            'social_links.twitter' => 'nullable|url|max:255',
+            'social_links.linkedin' => 'nullable|url|max:255',
+            'social_links.instagram' => 'nullable|url|max:255',
+            'cover_banner' => 'nullable|image|max:2048',
+        ]);
+        
+        $company->description = $request->description;
+        $company->website = $request->website;
+        $company->social_links = $request->social_links;
+        
+        if ($request->hasFile('cover_banner')) {
+            if ($company->cover_banner) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($company->cover_banner);
+            }
+            $company->cover_banner = $request->file('cover_banner')->store('company_banners', 'public');
+        }
+        
+        $company->save();
+        
+        return redirect()->back()->with('success', 'Profil public mis à jour avec succès !');
+    }
+
+    /**
+     * Store a new company update.
+     */
+    public function storeUpdate(Request $request)
+    {
+        $company = Auth::user()->company;
+        
+        if ($company->approval_status !== 'approved') {
+            abort(403, 'Action non autorisée.');
+        }
+        
+        $request->validate([
+            'content' => 'required|string|max:2000',
+            'image' => 'nullable|image|max:2048',
+        ]);
+        
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('company_updates', 'public');
+        }
+        
+        $company->updates()->create([
+            'content' => $request->content,
+            'image_path' => $imagePath,
+        ]);
+        
+        return redirect()->back()->with('success', 'Actualité publiée avec succès !');
+    }
+
+    /**
+     * Delete a company update.
+     */
+    public function deleteUpdate(CompanyUpdate $update)
+    {
+        if ($update->company_id !== Auth::user()->company->id) {
+            abort(403, 'Unauthorized action.');
+        }
+        
+        if ($update->image_path) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($update->image_path);
+        }
+        
+        $update->delete();
+        
+        return redirect()->back()->with('success', 'Actualité supprimée.');
     }
 }
 

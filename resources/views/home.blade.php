@@ -303,6 +303,30 @@
                         </div>
                     </div>
                 </a>
+
+                <!-- Espace Entreprises -->
+                <a href="{{ route('companies.index') }}" class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 hover:-translate-y-2 overflow-hidden scroll-fade-in">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/0 to-blue-600/0 group-hover:from-indigo-500/10 group-hover:to-blue-600/10 transition-all duration-500"></div>
+                    <div class="relative bg-gradient-to-r from-blue-700 to-indigo-800 p-6 text-white">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                        <div class="relative w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                            <i class="ri-community-line text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold relative z-10">Espace Entreprises</h3>
+                        <p class="text-indigo-100 text-sm mt-2 relative z-10">Vitrine & Emploi</p>
+                    </div>
+                    <div class="p-6 relative">
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Découvrez les entreprises locales, suivez leurs actualités et explorez les opportunités d'emploi directes.
+                        </p>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors">Portails & Offres</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                            <div class="bg-gradient-to-r from-blue-700 to-indigo-800 h-2 rounded-full transition-all duration-1000 progress-bar" style="width: 0%" data-width="92"></div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>

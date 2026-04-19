@@ -72,6 +72,14 @@
                     <span class="nav-link-underline"></span>
                 </a>
                 
+                <a href="{{ route('companies.index') }}" 
+                   class="nav-link-premium {{ request()->routeIs('companies.*') ? 'nav-link-active' : '' }}"
+                   data-route="companies">
+                    <span class="nav-link-icon"><i class="ri-community-line"></i></span>
+                    <span class="nav-link-text">Entreprises</span>
+                    <span class="nav-link-underline"></span>
+                </a>
+                
                 <a href="{{ route('about') }}" 
                    class="nav-link-premium {{ request()->routeIs('about') ? 'nav-link-active' : '' }}"
                    data-route="about">
@@ -314,6 +322,10 @@
                                     <a href="{{ route('company.profile') }}" class="user-menu-item-premium" @click="open = false">
                                         <i class="ri-building-line"></i>
                                         <span>Mon Entreprise</span>
+                                    </a>
+                                    <a href="{{ route('company.public-profile') }}" class="user-menu-item-premium" @click="open = false">
+                                        <i class="ri-layout-masonry-line"></i>
+                                        <span>Profil Public</span>
                                     </a>
                                 @elseif(auth()->user()->hasRole('main_admin'))
                                     <a href="{{ route('admin.dashboard') }}" class="user-menu-item-premium" @click="open = false">

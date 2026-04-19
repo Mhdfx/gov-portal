@@ -102,8 +102,8 @@ class JobListingController extends Controller
     {
         $company = Auth::user()->company;
         
-        if (!$company) {
-            return redirect()->route('company.setup')->with('error', 'Please complete your company profile first.');
+        if (!$company || $company->approval_status !== 'approved') {
+            return redirect()->route('company.dashboard')->with('error', 'Votre entreprise doit être approuvée par l\'administration pour publier des offres d\'emploi.');
         }
 
         return view('jobs.create', compact('company'));
@@ -116,8 +116,8 @@ class JobListingController extends Controller
     {
         $company = Auth::user()->company;
         
-        if (!$company) {
-            return redirect()->route('company.setup')->with('error', 'Please complete your company profile first.');
+        if (!$company || $company->approval_status !== 'approved') {
+            return redirect()->route('company.dashboard')->with('error', 'Votre entreprise doit être approuvée par l\'administration pour publier des offres d\'emploi.');
         }
 
         $request->validate([

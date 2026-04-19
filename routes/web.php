@@ -22,6 +22,7 @@ use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\CompanyPublicController;
 
 // ============================================
 // PUBLIC ROUTES (No Authentication Required)
@@ -43,6 +44,10 @@ Route::post('/blog/{article}/like', [BlogController::class, 'like'])->name('blog
 // Job listings routes (public)
 Route::get('/jobs', [JobListingController::class, 'index'])->name('jobs.index');
 Route::get('/jobs/{jobListing}', [JobListingController::class, 'show'])->name('jobs.show');
+
+// Public Business Hub Routes
+Route::get('/companies', [CompanyPublicController::class, 'index'])->name('companies.index');
+Route::get('/companies/{slug}', [CompanyPublicController::class, 'show'])->name('companies.show');
 
 // Service forms routes (requires authentication)
 Route::middleware('auth')->group(function () {
@@ -240,6 +245,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/notifications/{notification}/read', [App\Http\Controllers\CompanyDashboardController::class, 'markNotificationRead'])->name('notifications.read');
         Route::get('/settings', [App\Http\Controllers\CompanyDashboardController::class, 'settings'])->name('settings');
         Route::post('/settings', [App\Http\Controllers\CompanyDashboardController::class, 'updateSettings'])->name('settings.update');
+
+        // Business Hub Management
+        Route::get('/public-profile', [App\Http\Controllers\CompanyDashboardController::class, 'publicProfile'])->name('public-profile');
+        Route::post('/public-profile', [App\Http\Controllers\CompanyDashboardController::class, 'updatePublicProfile'])->name('public-profile.update');
+        Route::post('/updates', [App\Http\Controllers\CompanyDashboardController::class, 'storeUpdate'])->name('updates.store');
+        Route::delete('/updates/{update}', [App\Http\Controllers\CompanyDashboardController::class, 'deleteUpdate'])->name('updates.delete');
     });
 
     Route::middleware('role:candidate')->prefix('candidate')->name('candidate.')->group(function () {

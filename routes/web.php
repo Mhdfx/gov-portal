@@ -143,7 +143,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/settings', [AdminDashboardController::class, 'updateSettings'])->name('settings.update');
         Route::get('/users', [AdminDashboardController::class, 'users'])->name('users');
         Route::get('/companies', [AdminDashboardController::class, 'companies'])->name('companies');
+        Route::post('/companies/{id}/approve', [AdminDashboardController::class, 'approveCompany'])->name('companies.approve');
+        Route::post('/companies/{id}/reject', [AdminDashboardController::class, 'rejectCompany'])->name('companies.reject');
         Route::get('/submissions', [AdminDashboardController::class, 'submissions'])->name('submissions');
+        Route::post('/submissions/{type}/{id}/status', [AdminDashboardController::class, 'updateSubmissionStatus'])->name('submissions.status');
         Route::get('/reports', [AdminDashboardController::class, 'reports'])->name('reports.index');
         Route::get('/notifications', [AdminDashboardController::class, 'notifications'])->name('notifications.index');
         Route::post('/notifications/{id}/read', [AdminDashboardController::class, 'markNotificationAsRead'])->name('notifications.mark-read');

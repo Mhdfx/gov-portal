@@ -243,6 +243,8 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::middleware('role:candidate')->prefix('candidate')->name('candidate.')->group(function () {
+        Route::get('/register', [App\Http\Controllers\CandidateController::class, 'showRegistrationForm'])->name('register');
+        Route::post('/register', [App\Http\Controllers\CandidateController::class, 'register'])->name('register.submit');
         Route::get('/dashboard', [App\Http\Controllers\CandidateController::class, 'dashboard'])->name('dashboard');
         Route::get('/profile', [App\Http\Controllers\CandidateController::class, 'profile'])->name('profile');
         Route::post('/profile', [App\Http\Controllers\CandidateController::class, 'updateProfile'])->name('profile.update');

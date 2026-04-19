@@ -56,11 +56,11 @@ class CompanyDashboardController extends Controller
         
         // Get recent job applications
         $recentApplications = JobListing::where('company_id', $company->id)
-            ->with(['applications' => function($query) {
+            ->with(['jobApplications' => function($query) {
                 $query->latest()->limit(5);
             }])
             ->get()
-            ->pluck('applications')
+            ->pluck('jobApplications')
             ->flatten();
         
         // Get recent notifications

@@ -66,9 +66,9 @@ class StatisticsService
         return Cache::remember('company_statistics', 600, function () {
             return [
                 'total' => Company::count(),
-                'approved' => Company::where('status', 'approved')->count(),
-                'pending' => Company::where('status', 'pending')->count(),
-                'rejected' => Company::where('status', 'rejected')->count(),
+                'approved' => Company::where('approval_status', 'approved')->count(),
+                'pending' => Company::where('approval_status', 'pending')->count(),
+                'rejected' => Company::where('approval_status', 'rejected')->count(),
                 'by_sector' => Company::selectRaw('sector, count(*) as count')
                     ->groupBy('sector')
                     ->get()

@@ -180,21 +180,6 @@ class Company extends Model
         return $address;
     }
 
-    /**
-     * Scope for approved companies.
-     */
-    public function scopeApproved($query)
-    {
-        return $query->where('approval_status', 'approved');
-    }
-
-    /**
-     * Scope for active companies.
-     */
-    public function scopeActive($query)
-    {
-        return $query->where('is_active', true);
-    }
 
     /**
      * Scope for companies by region.

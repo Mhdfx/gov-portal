@@ -1742,7 +1742,7 @@ class AdminDashboardController extends Controller
     public function approveCompany($id)
     {
         $company = Company::findOrFail($id);
-        $company->update(['approval_status' => 'approved']);
+        $company->update(['approval_status' => AppConstants::APPROVAL_APPROVED]);
         
         // Create notification
         Notification::create([
@@ -1762,6 +1762,10 @@ class AdminDashboardController extends Controller
             'user_agent' => request()->userAgent(),
         ]);
         
+        // Clear admin dashboard cache
+        Cache::forget('admin_stats_' . Auth::id());
+        Cache::forget('admin_recent_companies_' . Auth::id());
+        
         return redirect()->back()->with('success', 'Entreprise approuvée avec succès.');
     }
     
@@ -1771,7 +1775,7 @@ class AdminDashboardController extends Controller
     public function rejectCompany($id)
     {
         $company = Company::findOrFail($id);
-        $company->update(['approval_status' => 'rejected']);
+        $company->update(['approval_status' => AppConstants::APPROVAL_REJECTED]);
         
         // Create notification
         Notification::create([
@@ -1790,6 +1794,10 @@ class AdminDashboardController extends Controller
             'ip_address' => request()->ip(),
             'user_agent' => request()->userAgent(),
         ]);
+        
+        // Clear admin dashboard cache
+        Cache::forget('admin_stats_' . Auth::id());
+        Cache::forget('admin_recent_companies_' . Auth::id());
         
         return redirect()->back()->with('success', 'Entreprise rejetée avec succès.');
     }

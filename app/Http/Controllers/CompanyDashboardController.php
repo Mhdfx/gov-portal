@@ -13,6 +13,7 @@ use App\Models\JobListing;
 use App\Models\JobApplication;
 use App\Models\CompanyDocument;
 use App\Models\CompanyUpdate;
+use App\Models\Notification;
 use SEO;
 
 class CompanyDashboardController extends Controller

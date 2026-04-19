@@ -288,13 +288,24 @@
                                     <p class="text-xs text-gray-500">Approved: {{ $company->approved_at ? $company->approved_at->format('M d, Y') : '—' }}</p>
                                 </td>
                                 <td class="px-6 py-4 text-right">
-                                    <div class="inline-flex items-center gap-2">
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 inline-flex items-center text-xs font-semibold">
-                                            <i class="ri-eye-line text-lg mr-1"></i> View
+                                    <div class="inline-flex items-center gap-3">
+                                        @if($company->approval_status === 'pending')
+                                            <form action="{{ route('admin.companies.approve', $company->id) }}" method="POST" class="inline">
+                                                @csrf
+                                                <button type="submit" class="text-green-600 hover:text-green-900" title="Approve">
+                                                    <i class="ri-check-line text-xl"></i>
+                                                </button>
+                                            </form>
+                                            <form action="{{ route('admin.companies.reject', $company->id) }}" method="POST" class="inline">
+                                                @csrf
+                                                <button type="submit" class="text-red-600 hover:text-red-900" title="Reject">
+                                                    <i class="ri-close-line text-xl"></i>
+                                                </button>
+                                            </form>
+                                        @endif
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 inline-flex items-center text-xs font-semibold" title="View details">
+                                            <i class="ri-eye-line text-lg"></i>
                                         </a>
-                                        <button type="button" class="text-gray-500 hover:text-gray-900 inline-flex items-center text-xs font-semibold">
-                                            <i class="ri-more-2-line text-lg"></i>
-                                        </button>
                                     </div>
                                 </td>
                             </tr>

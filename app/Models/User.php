@@ -30,6 +30,7 @@ class User extends Authenticatable
         'two_factor_enabled',
         'two_factor_secret',
         'recovery_codes',
+        'is_active',
     ];
 
     /**
@@ -54,6 +55,7 @@ class User extends Authenticatable
             'last_login_at' => 'datetime',
             'password' => 'hashed',
             'two_factor_enabled' => 'boolean',
+            'is_active' => 'boolean',
         ];
     }
 

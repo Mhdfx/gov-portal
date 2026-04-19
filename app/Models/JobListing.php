@@ -39,6 +39,7 @@ class JobListing extends Model
         'applications_count',
         'is_featured',
         'featured_until',
+        'is_active',
     ];
 
     protected $casts = [
@@ -51,6 +52,7 @@ class JobListing extends Model
         'start_date' => 'date',
         'is_featured' => 'boolean',
         'featured_until' => 'datetime',
+        'is_active' => 'boolean',
     ];
 
     /**
